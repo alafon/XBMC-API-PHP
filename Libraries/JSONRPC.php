@@ -1,6 +1,6 @@
 <?php
 
-namespace MMC\XBMCBundle\API\XBMC\JSONRPC;
+namespace MMC\XBMCBundle\API\XBMC\Libraries;
 
 /**
  * @property JSONRPC\Version    $Version

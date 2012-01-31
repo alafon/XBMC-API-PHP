@@ -1,10 +1,10 @@
 <?php
 
-namespace MMC\XBMCBundle\API\XBMC\JSONRPC;
+namespace MMC\XBMCBundle\API\XBMC\Libraries;
 
 /**
- * @property JSONRPC JSONRPC
  * @property \MMC\XBMCBundle\API\XBMC\Server XBMCServer
+ * @property JSONRPC JSONRPC
  */
 class Wrapper
 {

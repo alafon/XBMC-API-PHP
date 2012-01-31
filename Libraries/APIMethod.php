@@ -1,6 +1,6 @@
 <?php
 
-namespace MMC\XBMCBundle\API\XBMC\JSONRPC;
+namespace MMC\XBMCBundle\API\XBMC\Libraries;
 
 /**
  * Abstract class extended by all the method provided by the API.
@@ -30,7 +30,7 @@ abstract class APIMethod
      */
     public function call( $params = array(), $resultsAsArray = false )
     {
-        // $methodClass looks like MMC\XBMCBundle\API\XBMC\JSONRPC\AudioLibrary\Clean
+        // $methodClass looks like MMC\XBMCBundle\API\XBMC\Libraries\AudioLibrary\Clean
         $methodClass = get_called_class();
 
         // extracts "Clean" and "AudioLibrary"

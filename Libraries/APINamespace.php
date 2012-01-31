@@ -1,6 +1,6 @@
 <?php
 
-namespace MMC\XBMCBundle\API\XBMC\JSONRPC;
+namespace MMC\XBMCBundle\API\XBMC\Libraries;
 
 /**
  * @property \MMC\XBMCBundle\API\XBMC\Server XBMCServer
@@ -8,7 +8,7 @@ namespace MMC\XBMCBundle\API\XBMC\JSONRPC;
  */
 class APINamespace
 {
-    
+
     public function __construct( \MMC\XBMCBundle\API\XBMC\Server $xbmcServer )
     {
         $this->XBCMServer = $xbmcServer;
@@ -17,7 +17,7 @@ class APINamespace
         foreach ( $this->availableMethods as $availableMethod )
         {
             $methodClass = $calledClass . "\\" . $availableMethod;
-            // $methodClass looks like MMC\XBMCBundle\API\XBMC\JSONRPC\AudioLibrary\Clean
+            // $methodClass looks like MMC\XBMCBundle\API\XBMC\Libraries\AudioLibrary\Clean
 
             $this->$availableMethod = new $methodClass( $this->XBCMServer );
         }

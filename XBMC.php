@@ -4,7 +4,7 @@ namespace MMC\XBMCBundle\API\XBMC;
 
 /**
  * @property Server             $XBMCServer
- * @property JSONRPC\JSONRPC    $JSONRPC
+ * @property Libraries\Wrapper  $Wrapper
  */
 class XBMC
 {
@@ -13,12 +13,12 @@ class XBMC
     public function __construct( Server $xbmcServer )
     {
         $this->setXBMCServer($xbmcServer);
-        $this->JSONRPC = new JSONRPC\Wrapper( $xbmcServer );
+        $this->Wrapper = new Libraries\Wrapper( $xbmcServer );
     }
 
     public function isAlive()
     {
-        return $this->JSONRPC->JSONRPC->Ping->call()->result == 'pong';
+        return $this->Wrapper->JSONRPC->Ping->call()->result == 'pong';
     }
 
 
