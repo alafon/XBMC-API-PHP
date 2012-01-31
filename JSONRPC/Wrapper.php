@@ -3,6 +3,7 @@
 namespace MMC\XBMCBundle\API\XBMC\JSONRPC;
 
 /**
+ * @property JSONRPC JSONRPC
  * @property \MMC\XBMCBundle\API\XBMC\Server XBMCServer
  */
 class Wrapper
@@ -14,6 +15,8 @@ class Wrapper
     {
         $this->XBMCServer = $xbmcServer;
 
+        // todo instanciate only when needed via __get override
+        $this->JSONRPC = new JSONRPC( $xbmcServer );
     }
 }
 

@@ -4,9 +4,11 @@ namespace MMC\XBMCBundle\API\XBMC\JSONRPC;
 
 /**
  * @property \MMC\XBMCBundle\API\XBMC\Server XBMCServer
+ * @property array $availableMethods
  */
 class APINamespace
 {
+    
     public function __construct( \MMC\XBMCBundle\API\XBMC\Server $xbmcServer )
     {
         $this->XBCMServer = $xbmcServer;
