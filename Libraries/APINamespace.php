@@ -8,6 +8,10 @@ namespace MMC\XBMCBundle\API\XBMC\Libraries;
  */
 class APINamespace
 {
+    /**
+     * @var \MMC\XBMCBundle\API\XBMC\Server
+     */
+    private $XBMCServer;
 
     public function __construct( \MMC\XBMCBundle\API\XBMC\Server $xbmcServer )
     {

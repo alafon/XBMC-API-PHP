@@ -47,6 +47,7 @@ class Server
     private function buildJsonRequest( $method, $params )
     {
         $this->json_request_id = rand(1,9999999);
+
         $jsonArray = array( 'jsonrpc' => self::JSON_VERSION,
                             'id' => $this->json_request_id,
                             'method' => $method,

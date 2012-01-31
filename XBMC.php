@@ -8,6 +8,14 @@ namespace MMC\XBMCBundle\API\XBMC;
  */
 class XBMC
 {
+    /**
+     * @var \MMC\XBMCBundle\API\XBMC\Libraries\Wrapper
+     */
+    public $Wrapper;
+
+    /**
+     * @var \MMC\XBMCBundle\API\XBMC\Server
+     */
     private $XBMCServer;
 
     public function __construct( Server $xbmcServer )
