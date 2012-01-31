@@ -19,9 +19,27 @@ class Wrapper
     public function __construct( \MMC\XBMCBundle\API\XBMC\Server $xbmcServer )
     {
         $this->XBMCServer = $xbmcServer;
+    }
 
-        // todo instanciate only when needed via __get override
-        $this->JSONRPC = new JSONRPC( $xbmcServer );
+
+    public function __get( $key )
+    {
+        if( isset( $this->$key ))
+        {
+            return $this->$key;
+        }
+        elseif( class_exists( __NAMESPACE__ . "\\{$key}" ) )
+        {
+            $classname = __NAMESPACE__ . "\\{$key}";
+            // new $key() does not take the namespace in account (looks like a php bug)
+            $object = new $classname( $this->XBMCServer );
+            if( is_subclass_of( $object, __NAMESPACE__ ."\\APINamespace" ) )
+            {
+                $this->$key = $object;
+                return $this->$key;
+            }
+        }
+        throw new \Exception( "{$key} is not accessible in " . __CLASS__ . " or is not a valid API Namespace" );
     }
 }
 
