@@ -7,6 +7,7 @@ namespace MMC\XBMCBundle\API\XBMC;
  * @property integer    $port
  * @property string     $username
  * @property string     $password
+ * @property string     $return_type
  *
  * @property string $json_request
  * @property string $json_request_id
@@ -18,12 +19,19 @@ class Server
     const JSON_VERSION = '2.0';
     const JSON_API_URI = '/jsonrpc';
 
-    public function __construct( $host, $port = '8080', $username = 'xbmc', $password = '' )
+    const RETURN_DEFAULT_TYPE = 'json';
+
+    const RETURN_TYPE_JSON = 'json';
+    const RETURN_TYPE_STRING = 'string';
+    const RETURN_TYPE_ARRAY = 'array';
+
+    public function __construct( $host, $port = '8080', $username = 'xbmc', $password = '', $returnType = self::RETURN_DEFAULT_TYPE )
     {
         $this->host = trim( $host );
         $this->port = $port;
         $this->username = trim( $username );
         $this->password = trim( $password );
+        $this->return_type = $returnType;
     }
 
     /**
@@ -58,7 +66,7 @@ class Server
         return $jsonRequest;
     }
 
-    public function makeCall( $method, $params, $resultAsString = false )
+    public function makeCall( $method, $params, $returnType = self::RETURN_DEFAULT_TYPE )
     {
 
         $this->json_request  = $this->buildJsonRequest( $method, $params );
@@ -75,13 +83,20 @@ class Server
         $this->string_response = curl_exec($ch);
         $this->json_response = json_decode( $this->string_response );
 
-        if( $resultAsString )
+        switch ( $returnType )
         {
-            $response = $this->string_response;
-        }
-        else
-        {
-            $response = $this->json_response;
+            case self::RETURN_TYPE_ARRAY:
+                $response = json_decode( $this->string_response, true );
+                break;
+            case self::RETURN_TYPE_JSON:
+                $response = json_decode( $this->string_response );
+                break;
+            case self::RETURN_TYPE_STRING:
+                $response = $this->string_response;
+                break;
+            default:
+                throw new \Exception( "Unknown return type {$returnType} in " . __CLASS__ );
+                break;
         }
 
         // reset or tag something to know that everything goes right or wring

@@ -30,9 +30,10 @@ abstract class APIMethod
      * Makes the call to the server
      *
      * @param array $params
-     * @return string
+     * @param string $returnType
+     * @return mixed
      */
-    public function call( $params = array(), $resultsAsArray = false )
+    public function call( $params = array(), $returnType = \MMC\XBMCBundle\API\XBMC\Server::RETURN_DEFAULT_TYPE )
     {
         // $methodClass looks like MMC\XBMCBundle\API\XBMC\Libraries\AudioLibrary\Clean
         $methodClass = get_called_class();
@@ -43,7 +44,7 @@ abstract class APIMethod
         $namespace = array_pop($methodClassArray);
 
         // finally, make the call to the server using the XBMCServer object
-        return $this->XBCMServer->makeCall( "{$namespace}.{$method}", $params, $resultsAsArray );
+        return $this->XBCMServer->makeCall( "{$namespace}.{$method}", $params, $returnType );
     }
 }
 
