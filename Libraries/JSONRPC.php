@@ -3,14 +3,18 @@
 namespace MMC\XBMCBundle\API\XBMC\Libraries;
 
 /**
- * @property JSONRPC\Version    $Version
- * @property JSONRPC\Introspect $Introspect
- * @property JSONRPC\Ping       $Ping
+ * A simple definition for JSONRPC
  *
- * @property array $availableMethods
+ * Note: this class was auto-generated using JSONRPC.Introspect results
+ * @see \MMC\XBMCBundle\API\XBMC\Libraries\Generator
+ *
+ * @property JSONRPC\Introspect    $Introspect
+ * @property JSONRPC\NotifyAll    $NotifyAll
+ * @property JSONRPC\Permission    $Permission
+ * @property JSONRPC\Ping    $Ping
+ * @property JSONRPC\Version    $Version
+ *
  */
 class JSONRPC extends APINamespace
 {
 }
-
-?>

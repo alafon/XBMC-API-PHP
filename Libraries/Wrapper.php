@@ -6,7 +6,17 @@ namespace MMC\XBMCBundle\API\XBMC\Libraries;
  * A container class
  *
  * @property \MMC\XBMCBundle\API\XBMC\Server $XBMCServer
+ *
+ * @property Application $Application
+ * @property AudioLibrary $AudioLibrary
+ * @property Files $Files
+ * @property Input $Input
  * @property JSONRPC $JSONRPC
+ * @property Player $Player
+ * @property Playlist $Playlist
+ * @property System $System
+ * @property VideoLibrary $VideoLibrary
+ * @property XBMC $XBMC
  */
 class Wrapper
 {
