@@ -10,7 +10,6 @@ namespace MMC\XBMCBundle\API\XBMC\Libraries;
  */
 abstract class APIMethod
 {
-
     /**
      * @var \MMC\XBMCBundle\API\XBMC\Server
      */

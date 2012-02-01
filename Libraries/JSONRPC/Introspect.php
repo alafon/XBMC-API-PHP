@@ -7,13 +7,11 @@ use \MMC\XBMCBundle\API\XBMC\Server as XBMCServer;
 
 class Introspect extends APIMethod
 {
-
     public function getAPIMethodsList()
     {
         $introspectArray = $this->call( array(), XBMCServer::RETURN_TYPE_ARRAY );
         return array_keys( $introspectArray['result']['methods'] );
     }
-
 }
 
 ?>

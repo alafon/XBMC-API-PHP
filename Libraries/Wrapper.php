@@ -5,7 +5,7 @@ namespace MMC\XBMCBundle\API\XBMC\Libraries;
 /**
  * A container class
  *
- * @property \MMC\XBMCBundle\API\XBMC\Server XBMCServer
+ * @property \MMC\XBMCBundle\API\XBMC\Server $XBMCServer
  * @property JSONRPC $JSONRPC
  */
 class Wrapper
