@@ -4,7 +4,6 @@ namespace MMC\XBMCBundle\API\XBMC\Libraries;
 
 /**
  * @property \MMC\XBMCBundle\API\XBMC\Server XBMCServer
- * @property array $availableMethods
  */
 class APINamespace
 {
@@ -15,16 +14,28 @@ class APINamespace
 
     public function __construct( \MMC\XBMCBundle\API\XBMC\Server $xbmcServer )
     {
-        $this->XBCMServer = $xbmcServer;
-        $calledClass = get_called_class();
+        $this->XBMCServer = $xbmcServer;
+    }
 
-        foreach ( $this->availableMethods as $availableMethod )
+    public function __get( $key )
+    {
+        // only predefined properties or API Method are available for this
+        // object
+        if( isset( $this->$key ))
         {
-            $methodClass = $calledClass . "\\" . $availableMethod;
-            // $methodClass looks like MMC\XBMCBundle\API\XBMC\Libraries\AudioLibrary\Clean
-
-            $this->$availableMethod = new $methodClass( $this->XBCMServer );
+            return $this->$key;
         }
+        elseif( class_exists( get_called_class() . "\\" . "{$key}" ) )
+        {
+            $classname = get_called_class() . "\\{$key}";
+            $object = new $classname( $this->XBMCServer );
+            if( is_subclass_of( $object, __NAMESPACE__ ."\\APIMethod" ) )
+            {
+                $this->$key = $object;
+                return $this->$key;
+            }
+        }
+        throw new \Exception( "{$key} is not accessible in " . __CLASS__ . " or is not a valid API Method" );
     }
 }
 

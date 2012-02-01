@@ -11,9 +11,6 @@ namespace MMC\XBMCBundle\API\XBMC\Libraries;
  */
 class JSONRPC extends APINamespace
 {
-    public $availableMethods = array( 'Version',
-                                      'Introspect',
-                                      'Ping' );
 }
 
 ?>
