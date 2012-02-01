@@ -58,7 +58,7 @@ use \\MMC\\XBMCBundle\\API\\XBMC\\Libraries\\APIMethod as APIMethod;
  * for an example)
  *
  * Note: this class was auto-generated using JSONRPC.Introspect results
- * @see \MMC\XBMCBundle\API\XBMC\Libraries\Generator
+ * @see \\MMC\\XBMCBundle\\API\\XBMC\\Libraries\\Generator
  *
  */
 class $method extends APIMethod
@@ -84,7 +84,7 @@ namespace MMC\\XBMCBundle\\API\\XBMC\\Libraries;
  * A simple definition for $this->APINamespace
  *
  * Note: this class was auto-generated using JSONRPC.Introspect results
- * @see \MMC\XBMCBundle\API\XBMC\Libraries\Generator
+ * @see \\MMC\\XBMCBundle\\API\\XBMC\\Libraries\\Generator
  *
 EOF;
         foreach( $this->APIMethods as $method )
