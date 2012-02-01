@@ -3,7 +3,7 @@
 namespace MMC\XBMCBundle\API\XBMC\Libraries;
 
 /**
- * This class helps us by creating the directory structure and the classes
+ * This class helps us creating the directory structure and the classes
  * need to have a great auto-completion feature with the XBMC API
  *
  * Usage :
@@ -106,7 +106,7 @@ EOF;
         return $classCode;
     }
 
-    private function getLocation()
+    public function getLocation()
     {
 
         return $this->baseLocation;
@@ -162,9 +162,31 @@ EOF;
                 fclose( $fh );
             }
         }
+    }
 
+    static public function APIDefinitionAsArray( $namespacesPlusMethods )
+    {
+        $namespaces = array();
+        foreach( $namespacesPlusMethods as $namespacePlusMethod )
+        {
+            list( $namespace, $method ) = explode( ".", $namespacePlusMethod );
+            $namespaces[$namespace][] = $method;
+        }
+        return $namespaces;
+    }
 
+    static public function getWrapperNamespaceProperties( $namespaces )
+    {
+        $phpDoc = <<<EOF
+EOF;
+        foreach( $namespaces as $namespace )
+        {
+            $phpDoc .= <<<EOF
 
+ * @property $namespace \$$namespace
+EOF;
+        }
+        return $phpDoc;
     }
 
 }
