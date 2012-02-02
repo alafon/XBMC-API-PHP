@@ -13,6 +13,7 @@ make it linked to the folder where you've cloned this API (in the following case
 the API is part of a bundle).
 
 ```php
+
 $loader->registerNamespaces(array(
     'Symfony'          => array(__DIR__.'/../vendor/symfony/src', __DIR__.'/../vendor/bundles'),
     'Sensio'           => __DIR__.'/../vendor/bundles',
@@ -108,3 +109,31 @@ Same for the response with $xbmc->getJSONRequest()
 ## Extending API Method
 
 You can extend API methods, see Libraries/JSONRPC/Introspect.php for an example.
+
+```php
+<?php
+
+namespace XBMC\Libraries\JSONRPC;
+
+use \XBMC\Libraries\APIMethod as APIMethod;
+use \XBMC\Server as XBMCServer;
+
+/**
+ * A simple definition for JSONRPC.Introspect
+ * You can add custom methods in this class (see Introspect.getAPIMethodsList()
+ * for an example)
+ *
+ * Note: this class was auto-generated using JSONRPC.Introspect results
+ * @see \XBMC\Libraries\Generator
+ *
+ */
+class Introspect extends APIMethod
+{
+    public function getAPIMethodsList()
+    {
+        $introspectArray = $this->call( array(), XBMCServer::RETURN_TYPE_ARRAY );
+        return array_keys( $introspectArray['result']['methods'] );
+    }
+}
+```
+
