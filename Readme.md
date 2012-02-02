@@ -13,6 +13,7 @@ make it linked to the folder where you've cloned this API (in the following case
 the API is part of a bundle).
 
 ```php
+<?php
 
 $loader->registerNamespaces(array(
     'Symfony'          => array(__DIR__.'/../vendor/symfony/src', __DIR__.'/../vendor/bundles'),
@@ -39,6 +40,7 @@ other IDEs).
 First create a new XBMCServer instance :
 
 ```php
+<?php
 
 use \XBMC\XBMC as XBMC;
 use \XBMC\Server as XBMCServer;
@@ -51,6 +53,8 @@ Then, just call the API using the namespace and method convention defined at
 [JSON-RPC API v3](http://wiki.xbmc.org/index.php?title=JSON-RPC_API/v3)
 
 ```php
+<?php
+
 $xbmc->Wrapper
         ->AudioLibrary
         ->GetAlbums
@@ -69,6 +73,8 @@ into JSON before being sent with your query
 Example to get the 10st albums of your audio library :
 
 ```php
+<?php
+
 $xbmc->Wrapper
         ->AudioLibrary
         ->GetAlbums
@@ -84,6 +90,8 @@ Each request to your XBMC server is accessible by $xbmc->getJSONRequest() once
 it has been called.
 
 ```php
+<?php
+
 $xbmc->Wrapper
         ->AudioLibrary
         ->GetAlbums
