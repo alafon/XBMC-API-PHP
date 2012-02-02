@@ -1,6 +1,6 @@
 <?php
 
-namespace MMC\XBMCBundle\API\XBMC\exception;
+namespace XBMC\exception;
 
 class Server extends XBMC
 {

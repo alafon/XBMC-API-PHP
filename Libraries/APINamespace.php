@@ -1,18 +1,18 @@
 <?php
 
-namespace MMC\XBMCBundle\API\XBMC\Libraries;
+namespace XBMC\Libraries;
 
 /**
- * @property \MMC\XBMCBundle\API\XBMC\Server XBMCServer
+ * @property \XBMC\Server XBMCServer
  */
 class APINamespace
 {
     /**
-     * @var \MMC\XBMCBundle\API\XBMC\Server
+     * @var \XBMC\Server
      */
     private $XBMCServer;
 
-    public function __construct( \MMC\XBMCBundle\API\XBMC\Server $xbmcServer )
+    public function __construct( \XBMC\Server $xbmcServer )
     {
         $this->XBMCServer = $xbmcServer;
     }

@@ -1,6 +1,6 @@
 <?php
 
-namespace MMC\XBMCBundle\API\XBMC;
+namespace XBMC;
 
 /**
  * @property Server             $XBMCServer
@@ -9,12 +9,12 @@ namespace MMC\XBMCBundle\API\XBMC;
 class XBMC
 {
     /**
-     * @var \MMC\XBMCBundle\API\XBMC\Libraries\Wrapper
+     * @var \XBMC\Libraries\Wrapper
      */
     public $Wrapper;
 
     /**
-     * @var \MMC\XBMCBundle\API\XBMC\Server
+     * @var \XBMC\Server
      */
     private $XBMCServer;
 

@@ -1,12 +1,12 @@
 <?php
 
-namespace MMC\XBMCBundle\API\XBMC\Libraries;
+namespace XBMC\Libraries;
 
 /**
  * A simple definition for System
  *
  * Note: this class was auto-generated using JSONRPC.Introspect results
- * @see \MMC\XBMCBundle\API\XBMC\Libraries\Generator
+ * @see \XBMC\Libraries\Generator
  *
  * @property System\GetProperties    $GetProperties
  * @property System\Hibernate    $Hibernate

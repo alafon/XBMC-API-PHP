@@ -1,9 +1,9 @@
 <?php
 
-namespace MMC\XBMCBundle\API\XBMC\Libraries\JSONRPC;
+namespace XBMC\Libraries\JSONRPC;
 
-use \MMC\XBMCBundle\API\XBMC\Libraries\APIMethod as APIMethod;
-use \MMC\XBMCBundle\API\XBMC\Server as XBMCServer;
+use \XBMC\Libraries\APIMethod as APIMethod;
+use \XBMC\Server as XBMCServer;
 
 /**
  * A simple definition for JSONRPC.Introspect
@@ -11,7 +11,7 @@ use \MMC\XBMCBundle\API\XBMC\Server as XBMCServer;
  * for an example)
  *
  * Note: this class was auto-generated using JSONRPC.Introspect results
- * @see \MMC\XBMCBundle\API\XBMC\Libraries\Generator
+ * @see \XBMC\Libraries\Generator
  *
  */
 class Introspect extends APIMethod

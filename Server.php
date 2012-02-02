@@ -1,6 +1,6 @@
 <?php
 
-namespace MMC\XBMCBundle\API\XBMC;
+namespace XBMC;
 
 /**
  * @property string     $host
@@ -9,10 +9,10 @@ namespace MMC\XBMCBundle\API\XBMC;
  * @property string     $password
  * @property string     $return_type
  *
- * @property string $json_request
- * @property string $json_request_id
- * @property json $json_response
- * @property string  $string_response
+ * @property string     $json_request
+ * @property string     $json_request_id
+ * @property json       $json_response
+ * @property string     $string_response
  */
 class Server
 {

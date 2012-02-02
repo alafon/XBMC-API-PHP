@@ -5,19 +5,42 @@
 This project is still under development, changing every day, needing a lot of
 documentation, etc, etc. So please, be my guest and get in touch with me.
 
+## Note about autoloads
+
+You can use the autoload.php file so that classes will be included dynamically.
+If you use Symfony2, just add XBMC as a namespace prefix in app/autoload.php and
+make it linked to the folder where you've cloned this API (in the following case
+the API is part of a bundle).
+
+```php
+$loader->registerNamespaces(array(
+    'Symfony'          => array(__DIR__.'/../vendor/symfony/src', __DIR__.'/../vendor/bundles'),
+    'Sensio'           => __DIR__.'/../vendor/bundles',
+    'JMS'              => __DIR__.'/../vendor/bundles',
+    'Doctrine\\Common' => __DIR__.'/../vendor/doctrine-common/lib',
+    'Doctrine\\DBAL'   => __DIR__.'/../vendor/doctrine-dbal/lib',
+    'Doctrine'         => __DIR__.'/../vendor/doctrine/lib',
+    'Monolog'          => __DIR__.'/../vendor/monolog/src',
+    'Assetic'          => __DIR__.'/../vendor/assetic/src',
+    'Metadata'         => __DIR__.'/../vendor/metadata/src',
+    'XBMC'         => __DIR__.'/../src/MMC/XBMCBundle/API',
+));
+```
+
+
 ## Usage
 
 This XBMC API provides a wrapper which is just a simple class container for the
 API namespaces and methods. __ BUT __ it helps in getting a great auto-
 completion feature (at least working on NetBeans 7.0.1, I need to test it on
-other IDEs)
+other IDEs).
 
-First create a new XBMCServer instance
+First create a new XBMCServer instance :
 
 ```php
 
-use \MMC\XBMCBundle\API\XBMC\XBMC as XBMC;
-use \MMC\XBMCBundle\API\XBMC\Server as XBMCServer;
+use \XBMC\XBMC as XBMC;
+use \XBMC\Server as XBMCServer;
 
 $xbmcServer = new XBMCServer( '192.168.0.61' );
 $xbmc = new XBMC( $xbmcServer );
@@ -42,15 +65,17 @@ $xbmc->Wrapper
 `call()` can take an associative array of parameters which will be transformed
 into JSON before being sent with your query
 
-Example to get the 100st albums of your audio library :
+Example to get the 10st albums of your audio library :
 
 ```php
 $xbmc->Wrapper
         ->AudioLibrary
         ->GetAlbums
         ->call( array( 'limits' => array( 'start'  => 0,
-                                          'end'    => 100 ))) );
+                                          'end'    => 10 ))) );
 ```
+
+see sample.php
 
 ## XBMC Request and Response
 
@@ -83,11 +108,3 @@ Same for the response with $xbmc->getJSONRequest()
 ## Extending API Method
 
 You can extend API methods, see Libraries/JSONRPC/Introspect.php for an example.
-
-## Notes regarding PHP namespaces
-
-This project is a subproject of another one being developed over Symfony2 so
-that's why the namespace I use looks like MMC\XBMCBundle\API\XBMC\...
-
-This should not prevents you from using this API. If it's the case, please let
-me know by opening an issue.

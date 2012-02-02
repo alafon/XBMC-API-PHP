@@ -1,6 +1,6 @@
 <?php
 
-namespace MMC\XBMCBundle\API\XBMC\Libraries;
+namespace XBMC\Libraries;
 
 /**
  * This class helps us creating the directory structure and the classes
@@ -32,6 +32,7 @@ class Generator
     {
         $this->APIMethods = $APIMethods;
         $this->APINamespace = $APINamespace;
+        //echo $APINamespace . ": " . implode( ", ", $APIMethods) . "<br />";
 
         // @todo make it more sexy...
         $this->baseLocation = $baseLocation == null ? realpath( __DIR__ . "/../../../../../../app/cache/dev" ) . "/mmc/XBMC/Libraries" : $baseLocation;
@@ -48,9 +49,9 @@ class Generator
         $classCode = <<<EOF
 <?php
 
-namespace MMC\\XBMCBundle\\API\\XBMC\\Libraries\\$this->APINamespace;
+namespace XBMC\\Libraries\\$this->APINamespace;
 
-use \\MMC\\XBMCBundle\\API\\XBMC\\Libraries\\APIMethod as APIMethod;
+use \\XBMC\\Libraries\\APIMethod as APIMethod;
 
 /**
  * A simple definition for $this->APINamespace.$method
@@ -58,7 +59,7 @@ use \\MMC\\XBMCBundle\\API\\XBMC\\Libraries\\APIMethod as APIMethod;
  * for an example)
  *
  * Note: this class was auto-generated using JSONRPC.Introspect results
- * @see \\MMC\\XBMCBundle\\API\\XBMC\\Libraries\\Generator
+ * @see \\XBMC\\Libraries\\Generator
  *
  */
 class $method extends APIMethod
@@ -78,13 +79,13 @@ EOF;
         $classCode = <<<EOF
 <?php
 
-namespace MMC\\XBMCBundle\\API\\XBMC\\Libraries;
+namespace XBMC\\Libraries;
 
 /**
  * A simple definition for $this->APINamespace
  *
  * Note: this class was auto-generated using JSONRPC.Introspect results
- * @see \\MMC\\XBMCBundle\\API\\XBMC\\Libraries\\Generator
+ * @see \\XBMC\\Libraries\\Generator
  *
 EOF;
         foreach( $this->APIMethods as $method )

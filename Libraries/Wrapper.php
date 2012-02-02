@@ -1,11 +1,11 @@
 <?php
 
-namespace MMC\XBMCBundle\API\XBMC\Libraries;
+namespace XBMC\Libraries;
 
 /**
  * A container class
  *
- * @property \MMC\XBMCBundle\API\XBMC\Server $XBMCServer
+ * @property \XBMC\Server $XBMCServer
  *
  * @property Application $Application
  * @property AudioLibrary $AudioLibrary
@@ -23,10 +23,10 @@ class Wrapper
     /**
      * Constructor
      *
-     * @param \MMC\XBMCBundle\API\XBMC\Server $xbmcServer
+     * @param \XBMC\Server $xbmcServer
      * @return Wrapper
      */
-    public function __construct( \MMC\XBMCBundle\API\XBMC\Server $xbmcServer )
+    public function __construct( \XBMC\Server $xbmcServer )
     {
         $this->XBMCServer = $xbmcServer;
     }

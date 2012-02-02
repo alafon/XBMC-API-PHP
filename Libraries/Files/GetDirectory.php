@@ -1,8 +1,8 @@
 <?php
 
-namespace MMC\XBMCBundle\API\XBMC\Libraries\Files;
+namespace XBMC\Libraries\Files;
 
-use \MMC\XBMCBundle\API\XBMC\Libraries\APIMethod as APIMethod;
+use \XBMC\Libraries\APIMethod as APIMethod;
 
 /**
  * A simple definition for Files.GetDirectory
@@ -10,7 +10,7 @@ use \MMC\XBMCBundle\API\XBMC\Libraries\APIMethod as APIMethod;
  * for an example)
  *
  * Note: this class was auto-generated using JSONRPC.Introspect results
- * @see \MMC\XBMCBundle\API\XBMC\Libraries\Generator
+ * @see \XBMC\Libraries\Generator
  *
  */
 class GetDirectory extends APIMethod

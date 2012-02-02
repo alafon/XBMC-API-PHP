@@ -1,12 +1,12 @@
 <?php
 
-namespace MMC\XBMCBundle\API\XBMC\Libraries;
+namespace XBMC\Libraries;
 
 /**
  * A simple definition for Application
  *
  * Note: this class was auto-generated using JSONRPC.Introspect results
- * @see \MMC\XBMCBundle\API\XBMC\Libraries\Generator
+ * @see \XBMC\Libraries\Generator
  *
  * @property Application\GetProperties    $GetProperties
  * @property Application\Quit    $Quit

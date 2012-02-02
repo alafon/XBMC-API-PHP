@@ -1,26 +1,26 @@
 <?php
 
-namespace MMC\XBMCBundle\API\XBMC\Libraries;
+namespace XBMC\Libraries;
 
 /**
  * Abstract class extended by all the method provided by the API.
  *
  *
- * @property \MMC\XBMCBundle\API\XBMC\Server $XBMCServer
+ * @property \XBMC\Server $XBMCServer
  */
 abstract class APIMethod
 {
     /**
-     * @var \MMC\XBMCBundle\API\XBMC\Server
+     * @var \XBMC\Server
      */
     private $XBMCServer;
 
     /**
      * Constructor
      *
-     * @param \MMC\XBMCBundle\API\XBMC\Server $xbmcServer
+     * @param \XBMC\Server $xbmcServer
      */
-    public function __construct( \MMC\XBMCBundle\API\XBMC\Server $xbmcServer )
+    public function __construct( \XBMC\Server $xbmcServer )
     {
         $this->XBCMServer = $xbmcServer;
     }
@@ -32,9 +32,9 @@ abstract class APIMethod
      * @param string $returnType
      * @return mixed
      */
-    public function call( $params = array(), $returnType = \MMC\XBMCBundle\API\XBMC\Server::RETURN_DEFAULT_TYPE )
+    public function call( $params = array(), $returnType = \XBMC\Server::RETURN_DEFAULT_TYPE )
     {
-        // $methodClass looks like MMC\XBMCBundle\API\XBMC\Libraries\AudioLibrary\Clean
+        // $methodClass looks like \XBMC\Libraries\AudioLibrary\Clean
         $methodClass = get_called_class();
 
         // extracts "Clean" and "AudioLibrary"
