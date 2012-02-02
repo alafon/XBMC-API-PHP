@@ -14,7 +14,6 @@ the API is part of a bundle).
 
 ```php
 <?php
-
 $loader->registerNamespaces(array(
     'Symfony'          => array(__DIR__.'/../vendor/symfony/src', __DIR__.'/../vendor/bundles'),
     'Sensio'           => __DIR__.'/../vendor/bundles',
@@ -41,7 +40,6 @@ First create a new XBMCServer instance :
 
 ```php
 <?php
-
 use \XBMC\XBMC as XBMC;
 use \XBMC\Server as XBMCServer;
 
@@ -54,7 +52,6 @@ Then, just call the API using the namespace and method convention defined at
 
 ```php
 <?php
-
 $xbmc->Wrapper
         ->AudioLibrary
         ->GetAlbums
@@ -74,7 +71,6 @@ Example to get the 10st albums of your audio library :
 
 ```php
 <?php
-
 $xbmc->Wrapper
         ->AudioLibrary
         ->GetAlbums
@@ -91,7 +87,6 @@ it has been called.
 
 ```php
 <?php
-
 $xbmc->Wrapper
         ->AudioLibrary
         ->GetAlbums
@@ -120,7 +115,6 @@ You can extend API methods, see Libraries/JSONRPC/Introspect.php for an example.
 
 ```php
 <?php
-
 namespace XBMC\Libraries\JSONRPC;
 
 use \XBMC\Libraries\APIMethod as APIMethod;
