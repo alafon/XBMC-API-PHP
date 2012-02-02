@@ -8,9 +8,13 @@ require_once 'autoload.php';
 $xbmcServer = new XBMCServer( '192.168.0.61' );
 $xbmc = new XBMC( $xbmcServer );
 
-var_dump( $xbmc->Wrapper
+$xbmc->Wrapper
         ->AudioLibrary
         ->GetAlbums
-        ->call( array( 'limits' => array( 'start' => 0, 'end' => 10 ) )) );
+        ->call( array( 'limits' => array( 'start' => 0, 'end' => 10 ) ));
+
+var_dump( $xbmc->getJSONRequest() );
+var_dump( $xbmc->getJSONResponse() );
+
 
 

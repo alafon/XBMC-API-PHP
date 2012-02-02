@@ -3,16 +3,17 @@
 namespace XBMC;
 
 /**
- * @property string     $host
- * @property integer    $port
- * @property string     $username
- * @property string     $password
- * @property string     $return_type
+ * @property string     $host               The host server
+ * @property integer    $port               The host port if needed
+ * @property string     $username           The XBMC username
+ * @property string     $password           The XBMC password
+ * @property string     $return_type        The type of the response
  *
- * @property string     $json_request
- * @property string     $json_request_id
- * @property json       $json_response
- * @property string     $string_response
+ * @property stdClass   $json_request       The request as an object
+ * @property string     $json_request_id    The request ID
+ * @property string     $string_request     The request as a json string
+ * @property stdClass   $json_response      The response as an object
+ * @property string     $string_response    The response as a json string
  */
 class Server
 {
@@ -69,7 +70,8 @@ class Server
     public function makeCall( $method, $params, $returnType = self::RETURN_DEFAULT_TYPE )
     {
 
-        $this->json_request  = $this->buildJsonRequest( $method, $params );
+        $this->string_request  = $this->buildJsonRequest( $method, $params );
+        $this->json_request    = json_decode( $this->string_request );
         $requestURL = "http://" . $this->getHostPort() . self::JSON_API_URI;
 
         // todo manage curl extension loading status
@@ -78,7 +80,7 @@ class Server
         curl_setopt($ch, CURLOPT_POST, 1);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
         curl_setopt($ch, CURLOPT_URL, $requestURL );
-        curl_setopt($ch, CURLOPT_POSTFIELDS, $this->json_request);
+        curl_setopt($ch, CURLOPT_POSTFIELDS, $this->string_request);
 
         $this->string_response = curl_exec($ch);
         $this->json_response = json_decode( $this->string_response );

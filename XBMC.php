@@ -43,6 +43,21 @@ class XBMC
                       'username' => $this->XBMCServer->username,
                       'password' => $this->XBMCServer->password );
     }
+
+    public function getResults( $asString = false )
+    {
+        return $asString ? $this->XBMCServer->string_response : $this->getJSONResponse();
+    }
+
+    public function getJSONResponse()
+    {
+        return $this->XBMCServer->json_response;
+    }
+
+    public function getJSONRequest()
+    {
+        return $this->XBMCServer->json_request;
+    }
 }
 
 ?>
