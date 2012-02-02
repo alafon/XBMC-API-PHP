@@ -99,10 +99,27 @@ var_dump( $xbmc->getJSONRequest() );
 returns
 
 ```
-string(106) "{"jsonrpc":"2.0","id":1522541,"method":"AudioLibrary.GetAlbums","params":{"limits":{"start":0,"end":10}}}"
+object(stdClass)#6 (4) {
+  ["jsonrpc"]=>
+  string(3) "2.0"
+  ["id"]=>
+  int(7565294)
+  ["method"]=>
+  string(22) "AudioLibrary.GetAlbums"
+  ["params"]=>
+  object(stdClass)#7 (1) {
+    ["limits"]=>
+    object(stdClass)#8 (2) {
+      ["start"]=>
+      int(0)
+      ["end"]=>
+      int(10)
+    }
+  }
+}
 ```
 
-Same for the response with $xbmc->getJSONRequest()
+Same for the response with $xbmc->getJSONResponse()
 
 ## XBMC class features
 
